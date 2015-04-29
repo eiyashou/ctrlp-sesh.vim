@@ -1,6 +1,6 @@
 let s:n = exists('s:n') ? s:n : fnamemodify(expand('<sfile>', 1), ':t:r')
 
-let g:ctrlp_session_dir = exists('g:ctrlp_session_dir') ? g:ctrlp_session_dir : '.vimsessions'
+let g:ctrlp_session_dir = get(g:, 'ctrlp_session_dir', '~/.ctrlp_session')
 
 " Load guard
 if ( exists('g:loaded_ctrlp_'.s:n) && g:loaded_ctrlp_{s:n} )
@@ -9,24 +9,32 @@ if ( exists('g:loaded_ctrlp_'.s:n) && g:loaded_ctrlp_{s:n} )
 endif
 let g:loaded_ctrlp_{s:n} = 1
 
-call add(g:ctrlp_ext_vars, {
+let s:mark_var = {
       \ 'init': 'ctrlp#'.s:n.'#init()',
       \ 'accept': 'ctrlp#'.s:n.'#accept',
       \ 'lname': 'session:',
       \ 'sname': 'Choose session',
       \ 'type': 'line',
       \ 'sort': 1,
-      \ })
+      \ }
+
+if exists('g:ctrlp_ext_vars') && !empty(g:ctrlp_ext_vars)
+  let g:ctrlp_ext_vars = add(g:ctrlp_ext_vars, s:mark_var)
+else
+  let g:ctrlp_ext_vars = [s:mark_var]
+endif
 
 function! ctrlp#{s:n}#init()
-  return split(system('ls $HOME/'.g:ctrlp_session_dir), '\n')
+  let filelist = glob(g:ctrlp_session_dir.'/*')
+  return split(filelist)
+  " return split(system('ls $HOME/'.g:ctrlp_session_dir), '\n')
 endfunction
 
 function! ctrlp#{s:n}#accept(mode, str)
   " For this example, just exit ctrlp and run help
   call ctrlp#exit()
   wall
-  exe "source ~/".g:ctrlp_session_dir."/".a:str
+  exe 'source '.a:str
 endfunction
 
 
