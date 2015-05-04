@@ -24,13 +24,13 @@ else
   let g:ctrlp_ext_vars = [s:mark_var]
 endif
 
-function! ctrlp#{s:n}#init()
+function! ctrlp#{s:n}#init() abort
   let filelist = glob(g:ctrlp_session_dir.'/*')
   return split(filelist)
   " return split(system('ls $HOME/'.g:ctrlp_session_dir), '\n')
 endfunction
 
-function! ctrlp#{s:n}#accept(mode, str)
+function! ctrlp#{s:n}#accept(mode, str) abort
   " For this example, just exit ctrlp and run help
   call ctrlp#exit()
   wall
@@ -39,12 +39,12 @@ endfunction
 
 
 " Do something before enterting ctrlp
-function! ctrlp#{s:n}#enter()
+function! ctrlp#{s:n}#enter() abort
 endfunction
 
 
 " Do something after exiting ctrlp
-function! ctrlp#{s:n}#exit()
+function! ctrlp#{s:n}#exit() abort
 endfunction
 
 
@@ -52,7 +52,7 @@ endfunction
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
 
 " Allow it to be called later
-function! ctrlp#{s:n}#id()
+function! ctrlp#{s:n}#id() abort
   return s:id
 endfunction
 
