@@ -2,14 +2,17 @@ command! CtrlPSessions cal ctrlp#init(ctrlp#sessions#id())
 
 let g:ctrlp_session_dir = get(g:, 'ctrlp_session_dir', '~/.ctrlp_session')
 
-function! SaveOrCreateSession()
-  if strlen(v:this_session)
-    exe 'mks! '.v:this_session
-    echo 'Saved session to: '.v:this_session
-  else 
+function! SaveOrCreateSession(newsession)
+  if strlen(a:newsession)
+    let targetsession = g:ctrlp_session_dir.'/'.a:newsession
+  elseif strlen(v:this_session)
+    let targetsession = v:this_session
+  else
     let session_name = input('Session name: ')
-    exe 'mks! '.g:ctrlp_session_dir.'/'.session_name
-endif
+    let targetsession = g:ctrlp_session_dir.'/'.session_name
+  endif
+  exe 'mks! '.targetsession
+  echo 'Saved session to: '.targetsession
 endfunction
 
-command! MkS cal SaveOrCreateSession()
+command! -nargs=? MkS cal SaveOrCreateSession(<q-args>)
