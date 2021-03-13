@@ -10,7 +10,7 @@ function! SaveSeshVim(newsession)
     else
         let session_name = input('Session name: ')
         if strlen(session_name)==0 | return | endif
-        let targetsession = '~/'.g:ctrlp_seshdir.'/'.a:session_name
+        let targetsession = '~/'.g:ctrlp_seshdir.'/'.session_name
     endif
     exe 'mks! '.targetsession
     echo 'Saved session to: '.targetsession
