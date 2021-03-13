@@ -4,13 +4,13 @@ let g:ctrlp_seshrc = exists('g:ctrlp_seshrc') ? g:ctrlp_seshrc : '.vimsessions/.
 
 function! SaveSeshVim(newsession)
     if strlen(a:newsession)
-        let targetsession = '~/'.g:ctrlp_session_dir.'/'.a:newsession
+        let targetsession = '~/'.g:ctrlp_seshdir.'/'.a:newsession
     elseif strlen(v:this_session)
         let targetsession = v:this_session
     else
         let session_name = input('Session name: ')
         if strlen(session_name)==0 | return | endif
-        let targetsession = '~/'.g:ctrlp_session_dir.'/'.a:session_name
+        let targetsession = '~/'.g:ctrlp_seshdir.'/'.a:session_name
     endif
     exe 'mks! '.targetsession
     echo 'Saved session to: '.targetsession
