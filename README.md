@@ -20,7 +20,7 @@ With vim-plug
 Commands
 --------
 
-* `CtrlPOpenSesh` - shows a list of files in your session directory; choosing a file and hitting enter will execute `:wall` and source chosen session replacing all currently open buffers
+* `CtrlPOpenSesh` - shows a list of files in your session directory; choosing a file and hitting enter will execute `:wall`, close all current buffers and source chosen session replacing all currently open buffers
 * `CtrlPRenameSesh` - shows a list of sessions and allows you to rename one, alongside its configuration file
 * `CtrlPDeleteSesh` - shows a list of sessions and allows you to delete one, alongside its configuration file
 * `SaveSesh` - if a session is already opened it will just overwrite it's file like `:mks! <path to session files>` would do, otherwise it will ask for session name and create a session file in `g:ctrlp_seshdir`
