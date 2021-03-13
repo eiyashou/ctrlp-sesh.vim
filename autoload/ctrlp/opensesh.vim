@@ -25,6 +25,7 @@ endfunction
 function! ctrlp#{s:n}#accept(mode, str)
     call ctrlp#exit()
     wall
+    bufdo bd
     exe "source ~/".g:ctrlp_seshdir."/".a:str
     let seshrc = "~/".g:ctrlp_seshrc."/".a:str.".vim"
     if !empty(glob(seshrc))
