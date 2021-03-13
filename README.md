@@ -32,6 +32,15 @@ Settings
 `g:ctrlp_seshdir` - directory relative to user $HOME dir that will hold the session files. Default value is: `.vimsessions`, which points to `~/.vimsessions`.
 `g:ctrlp_seshrc` - directory relative to user $HOME dir that will hold the configuration files for each session. Default value is: `.vimsessions/.vimseshrc`, which points to `~/.vimsessions/.vimseshrc`.
 
+TODOs
+----------------
+
+* allow to enable/disable the closing of the previous buffers before opening the new session
+* adding the possibility of an automatic "unloader" of the previous session configuration.
+* also maybe these settings can be configured per session.
+* and maybe eventually get rid of the CtrlP code and just use (neo)vim's default autocompletion, which is good enough for this
+
+
 Bugs/Limitations
 ----------------
 
