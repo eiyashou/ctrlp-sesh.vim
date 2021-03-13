@@ -23,7 +23,7 @@ Commands
 * `CtrlPOpenSesh` - shows a list of files in your session directory; choosing a file and hitting enter will execute `:wall` and source chosen session replacing all currently open buffers
 * `CtrlPRenameSesh` - shows a list of sessions and allows you to rename one, alongside its configuration file
 * `CtrlPDeleteSesh` - shows a list of sessions and allows you to delete one, alongside its configuration file
-* `SaveSesh` - if a session is already opened it will just overwrite it's file like `:mks! <path to session files>` would do, otherwise it will ask for session name and create a session file in `g:ctrlp_session_dir`
+* `SaveSesh` - if a session is already opened it will just overwrite it's file like `:mks! <path to session files>` would do, otherwise it will ask for session name and create a session file in `g:ctrlp_seshdir`
 * `EditSesh` - opens a special file that's sourced after opening the currently loaded session, right into a new buffer. Will not open anything if there's no currently open session. 
 
 Settings
