@@ -13,8 +13,7 @@ function! SaveSeshVim(newsession)
         let targetsession = '~/'.g:ctrlp_seshdir.'/'.session_name
     endif
     exe 'mks! '.targetsession
-
-    echom '\nSaved session to: '.targetsession
+    echom 'Saved session to: '.targetsession
 endfunction
 
 function! EditSeshRc()
