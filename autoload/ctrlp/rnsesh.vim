@@ -1,7 +1,6 @@
 let s:n = exists('s:n') ? s:n : fnamemodify(expand('<sfile>', 1), ':t:r')
 
 let g:ctrlp_seshdir = exists('g:ctrlp_seshdir') ? g:ctrlp_seshdir : '.vimsessions'
-let g:ctrlp_seshrc = exists('g:ctrlp_seshrc') ? g:ctrlp_seshrc : '.vimsessions/.vimseshrc'
 
 if ( exists('g:loaded_ctrlp_'.s:n) && g:loaded_ctrlp_{s:n} )
       \ || v:version < 700 || &cp
@@ -28,8 +27,6 @@ function! ctrlp#{s:n}#accept(mode, str)
     if strlen(newname)>0
         call rename(expand("~/".g:ctrlp_seshdir."/".a:str),
                   \ expand("~/".g:ctrlp_seshdir."/".newname))
-        call rename(expand("~/".g:ctrlp_seshrc."/".a:str.".vim"),
-                  \ expand("~/".g:ctrlp_seshrc."/".newname.".vim"))
     endif
 
 endfunction

@@ -1,7 +1,6 @@
 let s:n = exists('s:n') ? s:n : fnamemodify(expand('<sfile>', 1), ':t:r')
 
 let g:ctrlp_seshdir = exists('g:ctrlp_seshdir') ? g:ctrlp_seshdir : '.vimsessions'
-let g:ctrlp_seshrc = exists('g:ctrlp_seshrc') ? g:ctrlp_seshrc : '.vimsessions/.vimseshrc'
 
 if ( exists('g:loaded_ctrlp_'.s:n) && g:loaded_ctrlp_{s:n} )
       \ || v:version < 700 || &cp
@@ -27,7 +26,6 @@ function! ctrlp#{s:n}#accept(mode, str)
     wall
     if confirm("Do you want to delete '".a:str."'?", "&Yes\n&No", 1) == 1
         call delete(expand("~/".g:ctrlp_seshdir."/".a:str))
-        call delete(expand("~/".g:ctrlp_seshrc."/".a:str.".vim"))
 
         if expand("~/".g:ctrlp_seshdir."/".a:str) == v:this_session
             let v:this_session=""
