@@ -7,7 +7,7 @@ What is it?
 This simple extension for CtrlP enables the following:
 * global directory to store vim session files
 * another global directory to store custom configurations for those vim sessions
-* CtrlP frontend and the commands SaveSesh and EditSesh for basic session manipulation
+* CtrlP frontend and the command SaveSesh for basic session manipulation
 
 Installation
 ------------
@@ -24,21 +24,11 @@ Commands
 * `CtrlPRenameSesh` - shows a list of sessions and allows you to rename one, alongside its configuration file
 * `CtrlPDeleteSesh` - shows a list of sessions and allows you to delete one, alongside its configuration file
 * `SaveSesh` - if a session is already opened it will just overwrite it's file like `:mks! <path to session files>` would do, otherwise it will ask for session name and create a session file in `g:ctrlp_seshdir`
-* `EditSesh` - opens a special file that's sourced after opening the currently loaded session, right into a new buffer. Will not open anything if there's no currently open session. 
 
 Settings
 --------
 
 `g:ctrlp_seshdir` - directory relative to user $HOME dir that will hold the session files. Default value is: `.vimsessions`, which points to `~/.vimsessions`.
-`g:ctrlp_seshrc` - directory relative to user $HOME dir that will hold the configuration files for each session. Default value is: `.vimsessions/.vimseshrc`, which points to `~/.vimsessions/.vimseshrc`.
-
-TODOs
-----------------
-
-* allow to enable/disable the closing of the previous buffers before opening the new session
-* adding the possibility of an automatic "unloader" of the previous session configuration.
-* also maybe these settings can be configured per session.
-* and maybe eventually get rid of the CtrlP code and just use (neo)vim's default autocompletion, which is good enough for this
 
 
 Bugs/Limitations
